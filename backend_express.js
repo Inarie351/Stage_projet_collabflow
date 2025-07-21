@@ -20,14 +20,14 @@ const Key = process.env.JWT_SECRET;
 const RefreshKey = process.env.REFRESH_JWT_SECRET;
 mongoose.connect("mongodb://127.0.0.1:27017/taskforge");
 app.use(express.json());
-const { getTask, deleteTask, update, addTasks } = require('./create_tasks');
-const { getUser, register, verifytoken, login } = require('./user_create_and_connexion');
+const { getTask, deleteTask, update, addTasks } = require('./Tasks/create_tasks');
+const { getUser, register, verifytoken, login } = require('./User/user_create_and_connexion');
 const { addMember,
 	getProjects,
 	deleteProjects,
 	updateProjects,
-	addProjects } = require('./create_projects');
-const { upload, profile } = require('./image_upload');
+	addProjects } = require('./Projects/create_projects');
+const { upload, profile } = require('./Projects/image_upload');
 
 app.get('/connection', (req, res) => {
     res.sendFile(__dirname + '/index.html');
