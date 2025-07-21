@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 const cloudinary = require('cloudinary').v2;
 require('dotenv').config();
 const multer = require('multer');
-const { CloudinaryStorage } = require('multer-storage-cloudinary');
+//const { CloudinaryStorage } = require('multer-storage-cloudinary');
 const bcrypt = require('bcrypt');
 const express = require('express');
 const http = require('http');
@@ -27,7 +27,7 @@ const { addMember,
 	deleteProjects,
 	updateProjects,
 	addProjects } = require('./Projects/create_projects');
-const { upload, profile } = require('./Projects/image_upload');
+const { upload, profile } = require('./image_upload');
 
 app.get('/connection', (req, res) => {
     res.sendFile(__dirname + '/index.html');
