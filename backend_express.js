@@ -72,6 +72,7 @@ app.get('/posts', verifytoken, (req, res) => {
 
 app.get('/', (req, res) => {
     console.log('Hello world');
+    res.send('Done');
 });
 
 app.post('/register', register);
