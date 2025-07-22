@@ -70,6 +70,10 @@ app.get('/posts', verifytoken, (req, res) => {
     res.json({message: 'Access granted for user'});
 });
 
+app.get('/', (req, res) => {
+    console.log('Hello world');
+});
+
 app.post('/register', register);
 
 app.post('/login', login);
