@@ -18,7 +18,7 @@ const io = socketIO(server);
 const port = 3000;
 const Key = process.env.JWT_SECRET;
 const RefreshKey = process.env.REFRESH_JWT_SECRET;
-mongoose.connect("mongodb://127.0.0.1:27017/taskforge");
+mongoose.connect("mongodb+srv://kimeldiedegnon:OM5aQ9kb5V3saYgB@cluster0.wdhst2t.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0");
 app.use(express.json());
 const { getTask, deleteTask, update, addTasks } = require('./Tasks/create_tasks');
 const { getUser, register, verifytoken, login } = require('./User/user_create_and_connexion');

@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 const express = require('express');
 const app = express();
 const Task = require('./../All_schema/task_schema');
-mongoose.connect("mongodb://127.0.0.1:27017/taskforge");
+mongoose.connect("mongodb+srv://kimeldiedegnon:OM5aQ9kb5V3saYgB@cluster0.wdhst2t.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0");
 app.use(express.json());
 
 const addTasks = async (req, res) => {

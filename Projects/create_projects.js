@@ -3,7 +3,7 @@ const express = require('express');
 const app = express();
 const User = require('./../All_schema/user_shemas');
 const Project = require('./../All_schema/project_schema');
-mongoose.connect("mongodb://127.0.0.1:27017/taskforge");
+mongoose.connect("mongodb+srv://kimeldiedegnon:OM5aQ9kb5V3saYgB@cluster0.wdhst2t.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0");
 app.use(express.json());
 
 const addProjects = async (req, res) => {
