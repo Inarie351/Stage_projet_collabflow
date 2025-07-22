@@ -27,8 +27,7 @@ const { addMember,
 	deleteProjects,
 	updateProjects,
 	addProjects } = require('./Projects/create_projects');
-const { upload, profile } = require('./image_upload');
-
+const { upload } = require('./image_upload');
 app.get('/connection', (req, res) => {
     res.sendFile(__dirname + '/index.html');
 });
@@ -45,7 +44,26 @@ io.on('connection', () => {
     });
 });
 
-app.post('/profile/:id', getProjects, upload.single('image'), profile);
+app.post('/profile/:id', getProjects, upload.single('image'),async (req, res) => {
+    try {
+        if (!req.file) {
+            return res.status(400).send('No file uploaded.');
+        }
+	const result = await cloudinary.uploader.upload(req.file.path, {
+	    resource_type: 'image'});
+	res.subb.image = result.url;
+    } catch (error) {
+        console.error('Upload error:', error);
+        res.status(500).send('Error uploading image.');
+    }
+    try {
+        console.log("I'm there");
+        const update =  await res.subb.save();
+        res.json(update);
+    } catch (err) {
+        res.status(400).json({ message: err.message});
+    }
+});
 
 app.get('/posts', verifytoken, (req, res) => {
     console.log(req.user);
